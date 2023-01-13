@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CHJproject:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CHJproject</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CHJproject-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CHJproject:war exploded" />
+    </root>
+  </artifact>
+</component>
