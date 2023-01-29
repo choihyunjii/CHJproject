@@ -13,38 +13,48 @@
     <style> @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@800&display=swap'); </style>
 </head>
 <body>
-<section class="all">
-    <h1>WRITING FORM</h1>
+<div class="body">
+    <table>
 
-    <section class="login-form">
 
-        <form action="">
-            <div class="int-area">
-                <input type="text" name="title" id="title"
-                       autocomplete="off" required placeholder="Write down title(max:30)" maxlength="30" >
-                <label for="title">TITLE</label>
-            </div>
-            <div class="int-area">
-                <textarea type="contents" name="ct" id="ct"
-                          autocomplete="off" required placeholder="Write down contents(max:500)" maxlength="500"></textarea>
-                <label for="ct">CONTENTS</label>
+        <h1 class="title">글 목록 페이지</h1>
+        <div class="table">
+            <thead style="width: 200%">
+            <tr class="listname">
+                <th id="번호">NO.</th>
+                <th id="제목">TITLE</th>
+                <th id="작성일">YEAR</th>
+                <th id="조회수">VIEWS</th>
+            </tr>
+            </thead>
 
-            </div>
-            <div class="int-area">
+            <tbody>
+            <td>21</td>
+            <td>최현지</td>
+            <td>여자</td>
+            <td>010-3351-4072</td>
 
-                <label for="ex_filename">UPLOAD</label>
-                <input type="file" id="ex_filename" class="upload-hidden">
-            </div>
 
-            <div class="btn-area">
-                <button id="btn"
-                        type="submit">SUBMIT</button>
-            </div>
-        </form>
-        <!--<div class="caption">
-          <a href="">Forgot Password?</a>
-        </div>-->
-    </section>
+            <tr>
+                <td>21</td>
+                <td>최현지</td>
+                <td>여자</td>
+                <td>010-3351-4072</td>
 
+            </tr>
+            </tbody>
+
+            <tfoot>
+
+            <td>c</td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tfoot>
+
+        </div>
+
+</div>
+</table>
 </body>
 </html>
