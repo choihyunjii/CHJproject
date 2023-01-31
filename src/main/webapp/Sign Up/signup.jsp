@@ -10,17 +10,16 @@
 <body>
 <section class="login-form">
     <h1>SIGN UP</h1>
-    <form action="">
+    <form action="signupAction.jsp" method="post">
         <div class="int-area">
             <input type="text" name="id" id="id"
                    autocomplete="off" required>
             <label for="id">ID</label>
         </div>
         <div class="int-area">
-            <input type="password" name="pw" id="pw"
+            <input type="password" name="password" id="password"
                    autocomplete="off" required>
-            <label for="pw">PASSWORD</label>
-
+            <label for="password">PASSWORD</label>
         </div>
         <div class="int-area">
             <input type="text" name="name" id="name"
