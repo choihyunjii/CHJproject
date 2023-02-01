@@ -18,22 +18,22 @@
 
     <section class="login-form">
 
-        <form action="">
+        <form action="writeAction.jsp" method="post">
             <div class="int-area">
                 <input type="text" name="title" id="title"
                        autocomplete="off" required placeholder="Write down title(max:30)" maxlength="30" >
                 <label for="title">TITLE</label>
             </div>
             <div class="int-area">
-                <textarea type="contents" name="ct" id="ct"
+                <textarea type="contents" name="contents" id="contents"
                           autocomplete="off" required placeholder="Write down contents(max:500)" maxlength="500"></textarea>
-                <label for="ct">CONTENTS</label>
+                <label for="contents">CONTENTS</label>
 
             </div>
             <div class="int-area">
 
-                <label for="ex_filename">UPLOAD</label>
-                <input type="file" id="ex_filename" class="upload-hidden">
+                <label for="upload">UPLOAD</label>
+                <input type="file" id="upload" class="upload-hidden">
             </div>
 
             <div class="btn-area">
