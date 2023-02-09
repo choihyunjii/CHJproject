@@ -32,4 +32,17 @@ public class Writing {
     public void setUpload(String upload) {
         this.upload = upload;
     }
+
+    @Override
+    public String toString() {
+        return "Writing{" +
+                "title=" + title +
+                ", contents='" + contents + '\'' +
+                ", upload='" + upload + '\'' +
+            /*    ", ss='" + ss + '\'' +
+                ", phone_number='" + phone_number + '\'' +
+                ", etc='" + etc + '\'' +*/
+                '}';
+    }
+
 }

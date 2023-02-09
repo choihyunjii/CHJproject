@@ -8,13 +8,13 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>글 쓰기 폼</title>
-    <link rel="stylesheet" href="write.css">
+    <title>글 수정 폼</title>
+    <link rel="stylesheet" href="update.css">
     <style> @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@800&display=swap'); </style>
 </head>
 <body>
 <section class="all">
-    <h1>WRITING FORM</h1>
+    <h1>UPDATE FORM</h1>
 
     <section class="login-form">
 
@@ -38,7 +38,7 @@
 
             <div class="btn-area">
                 <button id="btn"
-                        type="submit">SUBMIT</button>
+                        type="submit">Update</button>
             </div>
         </form>
         <!--<div class="caption">

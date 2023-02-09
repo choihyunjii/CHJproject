@@ -1,13 +1,14 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: 82103
-  Date: 2023-01-25
-  Time: 오후 7:46
-  To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ page import="dao.WritingDao" %>
+<%@ page import="dto.Writing" %>
+<%@ page import="java.util.List" %>
+
+
 <html>
 <head>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>글 쓰기 폼</title>
     <link rel="stylesheet" href="view.css">
     <style> @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@800&display=swap'); </style>
@@ -24,11 +25,29 @@
                 <th id="번호">NO.</th>
                 <th id="제목">TITLE</th>
                 <th id="작성일">YEAR</th>
-                <th id="조회수">VIEWS</th>
+
             </tr>
             </thead>
+                <%
+                            request.setCharacterEncoding("UTF-8");
+                    WritingDao writingDao = new WritingDao();
+                     List<Writing> list=writingDao.getUsers();
+                     for(int i = 0; i < list.size(); i++){
+            %>
 
             <tbody>
+            <tr>
+                <td><%=list.get(i).getTitle()%></td>
+                <td><%=list.get(i).getContents()%></td>
+
+
+            </tr>
+<%
+    }
+%>
+            </tbody>
+
+         <%--   <tbody>
             <td>21</td>
             <td>최현지</td>
             <td>여자</td>
@@ -54,7 +73,9 @@
 
         </div>
 
-</div>
+</div>--%>
+
 </table>
+</div>
 </body>
 </html>
