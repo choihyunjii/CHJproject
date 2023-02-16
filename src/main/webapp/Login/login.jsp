@@ -10,14 +10,14 @@
 <body>
 <section class="login-form">
     <h1>로그인</h1>
-    <form action="">
+    <form action="loginAction.jsp" method="post">
         <div class="int-area">
             <input type="text" name="id" id="id"
                    autocomplete="off" required>
             <label for="id">USER NAME</label>
         </div>
         <div class="int-area">
-            <input type="password" name="pw" id="pw"
+            <input type="password" name="password" id="pw"
                    autocomplete="off" required>
             <label for="pw">PASSWORD</label>
         </div>

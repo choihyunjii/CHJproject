@@ -13,6 +13,12 @@
 </head>
 <style> @import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Montserrat:wght@800&display=swap'); </style>
 
+<%
+    String userId=null;
+    if (session.getAttribute("id")!= null){
+        userId=(String) session.getAttribute("id");
+    }
+%>
 <body>
 <div class="header">
     <div class="header-title">
@@ -21,7 +27,17 @@
     <div class="header-nav">
         <a href="#" class="main"><i class="fa-solid fa-house-chimney"></i> Home</a>
         <a href="#" class="Search"><i class="fa-solid fa-magnifying-glass"></i> Search</a>
-        <a href="#" class="Login"><i class="fa-regular fa-user"></i> Login</a>
+        <%
+            if (userId==null){
+        %>
+        <a href="http://localhost:8090/CHJproject_war_exploded/Login/login.jsp" class="Login"><i class="fa-regular fa-user"></i> Login</a>
+        <%
+            }else{
+        %>
+        <a href="http://localhost:8090/CHJproject_war_exploded/Login/Logout.jsp" class="Login"><i class="fa-regular fa-user"></i> LogOut</a>
+        <%
+            }
+        %>
         <a href="#" class="Sign"> <i class="fa-regular fa-user"></i> Sign Up</a>
     </div>
 </div>
@@ -32,8 +48,8 @@
         <h1>How was your day? &nbsp;Tell me your story</h1>
 
         <span class="btn">
-                <button class="Writing"><h2><a class="Writinglink" href="#">Go to Write</a></h2></button>
-                  <button class="Reading"><h2><a class="Readinglink" href="#">View a list of posts</a></h2></button>
+                <button class="Writing"><h2><a class="Writinglink" href="http://localhost:8090/CHJproject_war_exploded/WRITE/write.jsp">Go to Write</a></h2></button>
+                  <button class="Reading"><h2><a class="Readinglink" href="http://localhost:8090/CHJproject_war_exploded/ViewPage/view.jsp">View a list of posts</a></h2></button>
            </span>
     </div>
 </div>

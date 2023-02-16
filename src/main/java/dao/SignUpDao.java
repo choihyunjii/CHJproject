@@ -35,4 +35,33 @@ public class SignUpDao {
         }
         return insertCount;
     }
+    public int login(String userId,String password){
+        int insertCount=0;
+
+        Connection conn=null;
+        PreparedStatement ps=null;
+        ResultSet rs=null;
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn=DriverManager.getConnection(dburl,dbuser,dbpassword);//데이터베이스 접근 부분
+            String SQL = "SELECT password FROM signUp WHERE id=?";
+            ps=conn.prepareStatement(SQL);//쿼리문 수행되는 부분
+            ps.setString(1,userId);
+            rs=ps.executeQuery();
+
+            if (rs.next()){
+                if (rs.getString(1).equals(password)){
+                    return 1;//로그인 성공
+                }
+                else {
+                    return insertCount;//비밀번호 오류
+                }
+            }
+            return -1;
+        }catch (Exception e){
+
+        }
+        return -2;
+    }
 }

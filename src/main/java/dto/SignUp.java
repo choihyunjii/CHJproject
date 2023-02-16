@@ -10,6 +10,10 @@ public class SignUp {
         private String phonenumber;
         private String etc;
 
+    public SignUp() {
+
+    }
+
     public SignUp(String id, String name, String password, String age, String gender, String phonenumber, String etc) {
         this.id = id;
         this.name = name;
