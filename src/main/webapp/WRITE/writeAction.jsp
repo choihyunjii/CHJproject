@@ -6,6 +6,8 @@
 
 <%
   request.setCharacterEncoding("UTF-8");
+  Writing writing1=new Writing();
+  int id=writing1.getId()+1;
   String title = null;
   String contents = null;
   String upload = "upload";

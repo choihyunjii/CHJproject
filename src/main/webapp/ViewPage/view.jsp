@@ -37,10 +37,9 @@
 
             <tbody>
             <tr>
-                <td><%=list.get(i).getTitle()%></td>
+                <td><%= list.get(i).getId()%></td>
+                <td><a href="http://localhost:8090/CHJproject_war_exploded/Update/update.jsp?id=<%= list.get(i).getId()%>"><%=list.get(i).getTitle()%></a></td>
                 <td><%=list.get(i).getContents()%></td>
-
-
             </tr>
 <%
     }

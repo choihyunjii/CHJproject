@@ -1,14 +1,39 @@
 package dto;
 
 public class Writing {
+
+    private int id;
     private String title;
     private String contents;
     private String upload;
 
-    public Writing(String title,String contents, String upload) {
+    public Writing() {
+
+    }
+
+    public Writing(String title, String contents, String upload) {
         this.title = title;
         this.contents = contents;
-        this.upload = upload ;
+        this.upload = upload;
+    }
+
+    public Writing(int id, String title, String contents, String upload) {
+        this.id = id;
+        this.title = title;
+        this.contents = contents;
+        this.upload = upload;
+    }
+
+    public Writing(int id) {
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {return title;}

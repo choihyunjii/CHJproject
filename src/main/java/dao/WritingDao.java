@@ -24,11 +24,12 @@ public class WritingDao {
             try{
                 Class.forName("com.mysql.cj.jdbc.Driver");
                 conn= DriverManager.getConnection(dburl,dbuser,dbpassword);
-                String sql = "insert into writing values (?,?,?)";
+                String sql = "insert into writing values (?,?,?,?)";
                 ps=conn.prepareStatement(sql);
-                ps.setString(1, writing.getTitle());
-                ps.setString(2,writing.getContents());
-                ps.setString(3,writing.getUpload());
+                ps.setInt(1,writing.getId());
+                ps.setString(2, writing.getTitle());
+                ps.setString(3,writing.getContents());
+                ps.setString(4,writing.getUpload());
                 insertCount=ps.executeUpdate();
 
 
@@ -38,31 +39,32 @@ public class WritingDao {
             return insertCount;
         }
 
-    public Writing getUser(Integer id){
-        Writing writing=null;
-        Connection conn=null;
-        PreparedStatement ps=null;
-        ResultSet rs=null;
+    public Writing getWriting(int id){
+            String sql="SELECT * FROM writing where id=?";
 
-        try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            conn= DriverManager.getConnection(dburl,dbuser,dbpassword); // database 실질적 접근 부분  연결
-            String sql="SELECT * FROM writing ";   //statement 쿼리문
-            ps=conn.prepareStatement(sql);   // 쿼리문 실행 //4           쿼리문 연결해서 실행
-                               //쿼리문 연결됐으면 1 실행?
-            rs=ps.executeQuery(); // rs 쿼리실행
-            if(rs.next()){ // rs 값이 있다면
-                String title =rs.getString(1);
-                String contents=rs.getString(2);
-                String upload=rs.getString(3);
+            Connection conn=null;
+            PreparedStatement ps=null;
+            ResultSet rs=null;  //결과값 조회임
 
 
-                writing=new Writing(title,contents,upload);
+            try {
+               Class.forName("com.mysql.cj.jdbc.Driver");
+               conn = DriverManager.getConnection(dburl,dbuser,dbpassword);
+               ps=conn.prepareStatement(sql);
+                ps.setInt(1,id);
+                rs=ps.executeQuery();
+                if (rs.next()){
+                    Writing writing=new Writing();
+                    writing.setId(rs.getInt(1));
+                    writing.setTitle(rs.getString(2));
+                    writing.setContents(rs.getString(3));
+                    writing.setUpload(rs.getString(4));
+                    return writing;
+                }
+            }catch (Exception e){
+                e.printStackTrace();
             }
-        }catch(Exception e){
-            e.printStackTrace();
-        }
-        return writing;
+            return null;
     }
     public List<Writing> getUsers(){
         List<Writing> list = new ArrayList<>();
@@ -78,11 +80,12 @@ public class WritingDao {
             PreparedStatement ps=conn.prepareStatement(sql)){
             try(ResultSet rs = ps.executeQuery(sql)){
                 while(rs.next()){
-                    String title = rs.getString(1);
-                    String contents = rs.getString(2);
-                    String upload = rs.getString(3);
+                    int id=rs.getInt(1);
+                    String title = rs.getString(2);
+                    String contents = rs.getString(3);
+                    String upload = rs.getString(4);
 
-                    Writing writing = new Writing(title, contents,upload);
+                    Writing writing = new Writing(id,title, contents,upload);
                     list.add(writing);
                 }
 
@@ -96,8 +99,27 @@ public class WritingDao {
 
         return list;
     }
+    public int upDate(Writing update){  //private로 변수 지정한 거 호출 느낌스?
+        int insertCount=0;
+        Connection conn=null;
+        PreparedStatement ps=null;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            conn= DriverManager.getConnection(dburl,dbuser,dbpassword);
+            String sql = "UPDATE writing SET title =? ,bbsContents =? Upload =? WHERE id=?";
+            ps=conn.prepareStatement(sql);
+            ps.setInt(1,update.getId());
+            ps.setString(2, update.getTitle());
+            ps.setString(3,update.getContents());
+            ps.setString(4,update.getUpload());
+            insertCount=ps.executeUpdate();
 
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+        return insertCount;
     }
+}
 
 
 
